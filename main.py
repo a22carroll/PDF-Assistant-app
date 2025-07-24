@@ -13,6 +13,7 @@ class PDFAssistantApp:
         self.upload_button = tk.Button(root, text="Upload PDF", command=self.upload_pdf)
         self.upload_button.pack(pady=10)
 
+        tk.Label(root, text="Ask a question:").pack()
         self.query_entry = tk.Entry(root, width=80)
         self.query_entry.pack(pady=10)
 
@@ -37,7 +38,7 @@ class PDFAssistantApp:
             messagebox.showerror("Error", f"Failed to process PDF:\n{e}")
 
     def ask_question(self):
-        query = self.query_entry.get()
+        query = self.query_entry.get().strip()
         if not query.strip():
             return
 
